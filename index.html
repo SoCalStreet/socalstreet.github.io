@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mark Streeter</title>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+
+       body {
+           font-family: 'Montserrat', sans-serif;
+           font-weight: 300;
+           color: #2B2B2B;
+           letter-spacing: 0.02em;
+           background-color: #F4F1EA;
+           background-image: 
+               linear-gradient(
+                   rgba(255,255,255,.1) 1px, 
+                   transparent 1px
+               ),
+               linear-gradient(
+                   90deg, 
+                   rgba(255,255,255,.1) 1px, 
+                   transparent 1px
+               );
+           background-size: 20px 20px;
+           background-position: center center;
+       }
+
+       .top-nav {
+           background-color: rgba(244, 241, 234, 0.97);
+           padding: 1.5rem;
+           position: fixed;
+           top: 0;
+           width: 100%;
+           display: flex;
+           justify-content: flex-end;
+           align-items: center;
+           height: 70px;
+           border-bottom: 1px solid rgba(232, 230, 225, 0.5);
+           backdrop-filter: blur(5px);
+       }
+
+       .share-button {
+           padding: 0.8rem 1.5rem;
+           background: rgba(255, 255, 255, 0.9);
+           border: 1px solid rgba(232, 230, 225, 0.8);
+           border-radius: 50px;
+           color: #2B2B2B;
+           text-decoration: none;
+           font-size: 0.8rem;
+           letter-spacing: 0.1em;
+           text-transform: uppercase;
+           font-weight: 300;
+           transition: all 0.2s ease;
+           cursor: pointer;
+       }
+
+       .share-button:hover {
+           transform: translateY(-1px);
+           background-color: rgba(255, 255, 255, 1);
+           box-shadow: 
+               0 4px 8px rgba(0,0,0,0.03),
+               0 2px 4px rgba(0,0,0,0.04);
+       }
+
+       .content {
+           margin-top: 100px;
+           margin-bottom: 40px;
+           padding: 1.5rem;
+           line-height: 1.8;
+           max-width: 600px;
+           margin-left: auto;
+           margin-right: auto;
+       }
+
+       .profile {
+           text-align: center;
+           margin-bottom: 3rem;
+       }
+
+       .profile h1 {
+           font-family: 'Cormorant Garamond', serif;
+           font-weight: 300;
+           font-size: 2.2rem;
+           margin-bottom: 1rem;
+           letter-spacing: 0.05em;
+       }
+
+       .profile p {
+           font-size: 0.9rem;
+           color: #4A4A4A;
+           line-height: 1.8;
+           margin-bottom: 2rem;
+           max-width: 400px;
+           margin-left: auto;
+           margin-right: auto;
+       }
+
+       .links {
+           display: flex;
+           flex-direction: column;
+           gap: 1rem;
+           padding: 0 1rem;
+       }
+
+       .link-item {
+           text-align: left;
+           color: #2B2B2B;
+           text-decoration: none;
+           font-size: 0.8rem;
+           background-color: rgba(255, 255, 255, 0.9);
+           padding: 1.2rem 1.5rem;
+           border-radius: 12px;
+           border: 1px solid rgba(232, 230, 225, 0.8);
+           box-shadow: 
+               0 2px 4px rgba(0,0,0,0.02),
+               0 1px 2px rgba(0,0,0,0.03);
+           transition: all 0.3s ease;
+           text-transform: uppercase;
+           letter-spacing: 0.1em;
+           font-weight: 300;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .link-item:hover {
+           transform: translateY(-1px);
+           background-color: rgba(255, 255, 255, 1);
+           box-shadow: 
+               0 4px 8px rgba(0,0,0,0.03),
+               0 2px 4px rgba(0,0,0,0.04);
+       }
+
+       .link-item:active {
+           transform: translateY(1px);
+           box-shadow: 
+               0 1px 2px rgba(0,0,0,0.02);
+       }
+
+       /* Add subtle hover animation */
+       .link-item::after {
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: linear-gradient(
+               120deg,
+               transparent,
+               rgba(255,255,255,0.3),
+               transparent
+           );
+           transform: translateX(-100%);
+       }
+
+       .link-item:hover::after {
+           transform: translateX(100%);
+           transition: transform 0.6s ease;
+       }
+   </style>
+</head>
+<body>
+   <div class="top-nav">
+       <button class="share-button" onclick="shareProfile()">Share Contact</button>
+   </div>
+
+   <div class="content">
+       <div class="profile">
+           <h1>Mark Streeter</h1>
+           <p>Accelerating early stage growth via investment, grants, advisory, and operations</p>
+       </div>
+
+       <div class="links">
+           <a href="https://theramblingeye.com" class="link-item">Website</a>
+           <a href="https://www.linkedin.com/in/mark-streeter-264a864" class="link-item">LinkedIn</a>
+           <a href="https://calendly.com/markevbs/quick-chat" class="link-item">Schedule a Meeting</a>
+           <a href="https://bit.ly/DeanslistMPLX" class="link-item">Metaplex DAO Grants</a>
+           <a href="https://bit.ly/decentragrants" class="link-item">DeansList Grants</a>
+       </div>
+   </div>
+
+   <script>
+       async function shareProfile() {
+           const contactData = {
+               name: "Mark Streeter",
+               title: "Founder",
+               org: "Van Bers Consulting",
+               email: "markevbs@gmail.com",
+               url: "https://theramblingeye.com",
+               note: "Accelerating early stage growth via investment, grants, advisory, and operations"
+           };
+
+           const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactData.name}
+TITLE:${contactData.title}
+ORG:${contactData.org}
+EMAIL:${contactData.email}
+URL:${contactData.url}
+NOTE:${contactData.note}
+END:VCARD`;
+
+           const blob = new Blob([vcard], { type: 'text/vcard' });
+           const file = new File([blob], 'contact.vcf', { type: 'text/vcard' });
+
+           if (navigator.share) {
+               try {
+                   await navigator.share({
+                       files: [file],
+                       title: 'Contact Card',
+                       text: 'Here is my contact information'
+                   });
+               } catch (err) {
+                   console.error('Error sharing:', err);
+               }
+           } else {
+               const url = URL.createObjectURL(blob);
+               const a = document.createElement('a');
+               a.href = url;
+               a.download = 'contact.vcf';
+               a.click();
+               URL.revokeObjectURL(url);
+           }
+       }
+   </script>
+</body>
+</html>
